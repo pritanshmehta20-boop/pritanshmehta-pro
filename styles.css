@@ -82,3 +82,16 @@ body{
   stroke: currentColor;
   stroke-width: 1.8;
 }
+/* Mobile process layout */
+@media (max-width: 600px) {
+  .process {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .process li,
+  .process li:nth-child(4),
+  .process li:nth-child(5) {
+    grid-column: auto;
+  }
+}
