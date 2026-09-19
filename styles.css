@@ -136,9 +136,11 @@ body{
 @media (max-width: 768px) {
   .footer-content {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    width: 100%;
+    gap: 20px;
   }
 
   .footer-content p {
@@ -149,5 +151,7 @@ body{
     display: flex;
     align-items: center;
     gap: 16px;
+    margin-left: auto;
+    flex-shrink: 0;
   }
 }
