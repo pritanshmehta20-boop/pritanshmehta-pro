@@ -49,3 +49,36 @@ body{
   border-color:#5b5cf6!important;
   color:#dfe2ff!important;
 }
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: inherit;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.social-links svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+.social-links a:last-child svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
