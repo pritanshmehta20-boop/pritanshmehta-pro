@@ -18,3 +18,34 @@
 .process li:nth-child(5){
   grid-column:4 / span 2;
 }.process li{border-top:2px solid var(--accent);padding-top:.85rem}.process strong{display:block;margin-bottom:.45rem}.process span{display:block;color:var(--muted);font-size:.83rem;line-height:1.45}.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.focus-grid article{padding:1.6rem 0;border-top:2px solid var(--accent)}.focus-grid p{margin:0;color:var(--muted)}.contact-section{text-align:center}.contact-content{max-width:800px}.contact-content h2{margin:0 auto 1.25rem}.contact-content>p:not(.eyebrow){max-width:620px;margin:0 auto 1.75rem;color:var(--muted)}.site-footer{padding:1.5rem 0;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}.footer-content{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.footer-content p{margin:0}@media(max-width:800px){.container{width:min(calc(100% - 32px),var(--max))}.nav-wrap{flex-direction:column;align-items:flex-start;padding:1rem 0}.nav-links{flex-wrap:wrap;gap:.7rem 1rem;font-size:.84rem}.nav-contact{padding:.25rem .55rem!important}.hero{padding:5.4rem 0}.hero-layout,.split-layout,.section-heading{grid-template-columns:1fr;gap:2rem}.hero-note{border-top:1px solid var(--accent);border-left:0;padding:1.4rem 0 0}.section{padding:4.25rem 0}.service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process{grid-template-columns:1fr 1fr}.focus-grid{grid-template-columns:1fr}}@media(max-width:520px){h1{font-size:clamp(3rem,16vw,4.4rem)}.service-grid{grid-template-columns:1fr}.button-row{flex-direction:column;align-items:stretch}.button{width:100%}.process{grid-template-columns:1fr}.footer-content{flex-direction:column}}
+:root{
+  --bg:#07070a;
+  --surface:#11111a;
+  --text:#f7f7fb;
+  --muted:#aaaab8;
+  --line:#292936;
+  --accent:#5b5cf6;
+  --accent-soft:#171735;
+  --max:1120px;
+}
+
+body{
+  background:
+    radial-gradient(ellipse 65% 40% at 50% 8%, #182b78 0%, #0b0d1f 35%, #07070a 72%);
+}
+
+.site-header{
+  background:rgb(7 7 10 / .82);
+}
+
+.button-primary{
+  background:linear-gradient(135deg,#6258f5,#286dff);
+  border-color:#6258f5;
+  color:#fff;
+  box-shadow:0 10px 30px rgb(55 83 255 / .28);
+}
+
+.nav-contact{
+  border-color:#5b5cf6!important;
+  color:#dfe2ff!important;
+}
