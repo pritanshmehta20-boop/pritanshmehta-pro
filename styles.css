@@ -1,12 +1,12 @@
-:root{
-  --bg:#f7f4ed;
-  --surface:#fffdf8;
-  --text:#17211b;
-  --muted:#626960;
-  --line:#d8d2c7;
-  --accent:#294437;
-  --accent-soft:#e2e9df;
-  --max:1120px;
+:root {
+  --bg: #F7F4ED;
+  --surface: #FFFDF8;
+  --text: #49494B;
+  --muted: #8E8E90;
+  --line: #D1BFA7;
+  --accent: #BD8C7D;
+  --accent-soft: #E8D8D3;
+  --max: 1120px;
 }
 
 *{box-sizing:border-box}
