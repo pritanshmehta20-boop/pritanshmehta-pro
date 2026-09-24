@@ -219,6 +219,7 @@ p { color: var(--muted); }
   align-items: center;
   padding: 74px 0 82px;
   border-bottom: 1px solid var(--line);
+  background-image: var(--gradient-primary);
 }
 
 .hero-grid {
