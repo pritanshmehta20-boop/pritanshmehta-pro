@@ -1,4 +1,18 @@
 :root {
+  --bg: #0D1020;
+  --surface: #14182A;
+  --surface-2: #24283A;
+
+  --text: #F7F1E8;
+  --muted: #B9B4C4;
+  --line: rgba(247, 241, 232, 0.16);
+
+  --accent: #EC0675;
+  --accent-dark: #7B2CBF;
+  --accent-soft: #3A3150;
+
+  --ink-soft: #D8D3DD;
+
   --gradient-primary:
     radial-gradient(
       circle farthest-corner at 6.3% 21.8%,
@@ -8,22 +22,11 @@
 
   --gradient-secondary:
     radial-gradient(
-      circle 232px at 10% 20%,
-      rgba(251, 238, 115, 0.74) 0%,
-      rgba(241, 195, 87, 0.74) 90%
+      circle 420px at 15% 15%,
+      rgba(236, 6, 117, 0.42) 0%,
+      rgba(75, 0, 130, 0.28) 45%,
+      rgba(13, 16, 32, 0) 100%
     );
-
-  --bg: #ffdead;
-  --surface: #ffdead;
-  --surface-2: #bebebe;
-
-  --text: #1c1c1c;
-  --muted: #4b0082;
-  --line: rgba(28, 28, 28, 0.18);
-
-  --accent: #c71585;
-  --accent-dark: #4b0082;
-  --accent-soft: #bebebe;
 
   --max: 1240px;
 }
