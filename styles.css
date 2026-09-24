@@ -218,9 +218,9 @@ h3 {
   color: var(--text);
 }
 
-.nav-links .nav-contact:hover {
-  background: var(--text);
-  color: #fff;
+.nav-links .nav-contact {
+  background: #EC0675;
+  color: #fff !important;
 }
 
 /* --------------------------------------------------
