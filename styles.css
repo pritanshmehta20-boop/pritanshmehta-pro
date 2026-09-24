@@ -1,4 +1,24 @@
 :root {
+  --gradient-primary: radial-gradient(
+    circle farthest-corner at 6.3% 21.8%,
+    rgba(236, 6, 117, 1) 0%,
+    rgba(13, 32, 67, 1) 90%
+  );
+
+  --gradient-secondary: radial-gradient(
+    circle 232px at 10% 20%,
+    rgba(251, 238, 115, 0.74) 0%,
+    rgba(241, 195, 87, 0.74) 90%
+  );
+
+  --text: #1C1C1C;
+  --accent: #C71585;
+  --purple: #4B0082;
+  --cream: #FFDEAD;
+  --grey: #BEBEBE;
+}
+
+:root {
   --bg: #FFDEAD;
   --surface: #FFDEAD;
   --surface-2: #BEBEBE;
