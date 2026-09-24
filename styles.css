@@ -901,7 +901,7 @@ p { color: var(--muted); }
 
 .contact-section {
   padding: 115px 0;
-  background: var(--text);
+  background-image: var(--gradient-primary);
   color: #fff;
 }
 
