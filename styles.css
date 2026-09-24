@@ -99,13 +99,6 @@ a { -webkit-tap-highlight-color: transparent; }
   gap: 28px;
 }
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  flex: 0 0 auto;
-}
-
 .brand-mark {
   position: relative;
   width: 48px;
@@ -113,6 +106,16 @@ a { -webkit-tap-highlight-color: transparent; }
   overflow: hidden;
   flex: 0 0 48px;
   background: #000;
+}
+
+.brand-mark img {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  max-width: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .brand-mark img {
