@@ -485,7 +485,9 @@ p { color: var(--muted); }
 
 /* Practice */
 
-.practice-section { background: var(--surface-2); }
+.practice-section {
+  background-image: var(--gradient-secondary);
+}
 
 .practice-heading {
   display: grid;
