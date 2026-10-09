@@ -44,46 +44,43 @@ button,a{-webkit-tap-highlight-color:transparent}
 @media(max-width:420px){.nav-links{gap:8px}.nav-contact span{display:none}.hero h1{font-size:52px}.hero-panel{min-height:320px}.loop-word{font-size:30px}.practice-content h3{font-size:43px}.contact-inner h2{font-size:55px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee-track{animation:none}}
 
+
+/* Rang Taana portfolio artwork */
+.practice-art {
+  background: #dedbd2;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
 .rang-taana-artwork {
   display: block;
   width: 100%;
-  height: 100%;
-  min-height: 500px;
-  object-fit: contain;
-  object-position: center;
-}
-
-@media (max-width: 700px) {
-  .rang-taana-artwork {
-    min-height: 390px;
-  }
-}
-
-/* Rang Taana portfolio image: mobile fit fix */
-.practice-art {
-  overflow: hidden;
-}
-
-.practice-art .rang-taana-artwork {
-  display: block;
-  width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 0;
   max-width: 100%;
   object-fit: contain;
   object-position: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .practice-art {
-    height: auto;
     min-height: 0;
-  }
-
-  .practice-art .rang-taana-artwork {
-    width: 100%;
-    height: auto;
-    max-height: none;
-    object-fit: contain;
+    padding: 20px;
   }
 }
 
+@media (max-width: 700px) {
+  .practice-art {
+    padding: 12px;
+  }
+
+  .rang-taana-artwork {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+}
