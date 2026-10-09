@@ -102,19 +102,4 @@ button,a{-webkit-tap-highlight-color:transparent}
   height: auto;
 }
 
-/* Force green rounded background behind the header logo */
-a.brand .brand-mark {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  background: #294437 !important;
-  border-radius: 12px !important;
-  padding: 8px !important;
-  overflow: hidden;
-}
 
-a.brand .brand-mark img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
