@@ -1,1 +1,731 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rang Taana Case Study | Pritansh Mehta</title>
+
+  <meta name="description" content="A digital marketing portfolio case study exploring audience psychology, organic social content, creative testing and conversion challenges for Rang Taana, a women's fashion brand.">
+
+  <meta name="author" content="Pritansh Mehta">
+  <link rel="canonical" href="https://pritanshmehta.pro/rang-taana-case-study.html">
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .case-hero {
+      padding: 75px 0 100px;
+      background: var(--bg);
+    }
+
+    .case-topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    .case-hero h1 {
+      font-size: clamp(60px, 10vw, 140px);
+      line-height: .84;
+      letter-spacing: -.085em;
+      max-width: 1100px;
+      margin: 65px 0 35px;
+    }
+
+    .case-hero h1 span {
+      background: var(--acid);
+      display: inline;
+    }
+
+    .case-intro {
+      max-width: 700px;
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    .case-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 30px;
+    }
+
+    .case-tags span {
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      font: 10px 'DM Mono', monospace;
+      text-transform: uppercase;
+    }
+
+    .case-banner {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 55px 0;
+    }
+
+    .case-banner-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+
+    .case-banner-item {
+      border-top: 1px solid #484848;
+      padding-top: 20px;
+    }
+
+    .case-banner-item span {
+      display: block;
+      font: 10px 'DM Mono', monospace;
+      color: var(--acid);
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .case-banner-item h3 {
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .case-banner-item p {
+      color: #aaa9a3;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .case-section {
+      padding: 110px 0;
+      background: var(--paper);
+    }
+
+    .case-section.alt {
+      background: var(--bg);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 80px;
+    }
+
+    .case-section h2 {
+      font-size: clamp(38px, 5vw, 68px);
+      line-height: .95;
+      letter-spacing: -.065em;
+      margin: 18px 0 25px;
+    }
+
+    .case-copy {
+      max-width: 760px;
+    }
+
+    .case-copy > p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .case-copy h3 {
+      font-size: 25px;
+      letter-spacing: -.04em;
+      margin: 35px 0 12px;
+    }
+
+    .case-list {
+      list-style: none;
+      border-top: 1px solid var(--line);
+      margin-top: 25px;
+    }
+
+    .case-list li {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 35px 1fr;
+      gap: 15px;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .case-list li span {
+      font: 10px 'DM Mono', monospace;
+      color: var(--muted);
+      padding-top: 5px;
+    }
+
+    .case-highlight {
+      background: var(--acid);
+      padding: 45px;
+      margin-top: 30px;
+    }
+
+    .case-highlight .eyebrow {
+      color: #444b2f;
+    }
+
+    .case-highlight h3 {
+      font-size: clamp(27px, 3.5vw, 43px);
+      line-height: 1.05;
+      letter-spacing: -.05em;
+      margin: 15px 0;
+    }
+
+    .case-highlight p {
+      color: #444b2f;
+      line-height: 1.75;
+      font-size: 14px;
+    }
+
+    .case-disclaimer {
+      border-left: 3px solid var(--acid);
+      padding: 20px 25px;
+      background: var(--paper);
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-top: 30px;
+    }
+
+    .case-cta {
+      background: var(--acid);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .case-cta h2 {
+      font-size: clamp(48px, 8vw, 100px);
+      line-height: .9;
+      letter-spacing: -.075em;
+      margin: 30px auto;
+      max-width: 900px;
+    }
+
+    .case-cta > .container > p:not(.section-number) {
+      max-width: 550px;
+      margin: 0 auto 30px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .case-back {
+      display: inline-block;
+      margin-top: 25px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 36px), var(--max));
+      }
+
+      .nav-wrap {
+        align-items: flex-start;
+        padding: 18px 0;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .case-hero {
+        padding: 45px 0 65px;
+      }
+
+      .case-hero h1 {
+        margin-top: 48px;
+      }
+
+      .case-topline {
+        flex-wrap: wrap;
+      }
+
+      .case-banner-grid,
+      .case-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .case-section {
+        padding: 75px 0;
+      }
+
+      .case-highlight {
+        padding: 28px;
+      }
+
+      .case-cta {
+        padding: 75px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/" aria-label="Pritansh Mehta home">
+        <span class="brand-mark">
+          <img src="/logo%20pro.png" alt="Pritansh Mehta logo">
+        </span>
+        <span class="brand-name">Pritansh Mehta</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="/#capabilities">Services</a>
+        <a href="/#practice">Work</a>
+        <a href="/#notes">Notes</a>
+        <a href="/#about">About</a>
+        <a class="nav-contact" href="/#contact">Let's talk <span>↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+
+    <section class="case-hero">
+      <div class="container">
+
+        <div class="case-topline">
+          <span>Selected work / Case study 001</span>
+          <span>Women's fashion / India</span>
+        </div>
+
+        <p class="eyebrow" style="margin-top: 35px;">
+          Audience psychology · Organic social · Creative strategy
+        </p>
+
+        <h1>
+          Rang <span>Taana.</span><br>
+          Beyond the post.
+        </h1>
+
+        <p class="case-intro">
+          How I approached organic social media marketing for a
+          women's fashion brand by examining audience behaviour,
+          creative formats, engagement signals and the journey
+          from content discovery to customer inquiry.
+        </p>
+
+        <div class="case-tags">
+          <span>Instagram</span>
+          <span>Facebook</span>
+          <span>Content analysis</span>
+          <span>Consumer psychology</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECT OVERVIEW -->
+
+    <section class="case-banner">
+      <div class="container case-banner-grid">
+
+        <div class="case-banner-item">
+          <span>01 / Business</span>
+          <h3>Made-to-order fashion</h3>
+          <p>
+            A women's fashion brand based in Meerut, offering
+            custom-designed outfits.
+          </p>
+        </div>
+
+        <div class="case-banner-item">
+          <span>02 / Challenge</span>
+          <h3>Attention isn't conversion</h3>
+          <p>
+            Understand why content can attract views and
+            engagement without consistently generating inquiries.
+          </p>
+        </div>
+
+        <div class="case-banner-item">
+          <span>03 / Approach</span>
+          <h3>Measure the signals</h3>
+          <p>
+            Compare content performance, audience responses,
+            distribution sources and the next step toward purchase.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTEXT -->
+
+    <section class="case-section">
+      <div class="container case-grid">
+
+        <div>
+          <p class="section-number">01 / CONTEXT</p>
+          <h2>The business behind the content.</h2>
+        </div>
+
+        <div class="case-copy">
+          <p>
+            Rang Taana operates in women's fashion, where visual
+            appeal, styling inspiration and personal preferences
+            play an important role in how customers discover
+            products.
+          </p>
+
+          <p>
+            Its made-to-order model begins with a customer
+            selecting a design and paying an advance before
+            production starts. This makes communicating the
+            design, building confidence and encouraging a direct
+            inquiry important parts of the customer journey.
+          </p>
+
+          <p>
+            The marketing challenge was not simply to publish
+            more content. It was to understand what each post
+            was doing, what audience behaviour it generated,
+            and whether that behaviour moved people closer
+            to a commercial conversation.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OBJECTIVE -->
+
+    <section class="case-section alt">
+      <div class="container case-grid">
+
+        <div>
+          <p class="section-number">02 / OBJECTIVE</p>
+          <h2>Understand the gap.</h2>
+        </div>
+
+        <div class="case-copy">
+          <p>
+            I approached the account as a measurement and
+            experimentation problem: how could content performance
+            be evaluated beyond views and likes?
+          </p>
+
+          <ul class="case-list">
+            <li>
+              <span>01</span>
+              Examine how different posts performed across
+              Instagram and Facebook.
+            </li>
+            <li>
+              <span>02</span>
+              Compare views, likes, comments, shares, saves,
+              profile activity and available distribution data.
+            </li>
+            <li>
+              <span>03</span>
+              Look for differences between content that attracted
+              attention and content that encouraged action.
+            </li>
+            <li>
+              <span>04</span>
+              Identify practical changes that could be tested
+              in future content.
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ANALYSIS -->
+
+    <section class="case-section">
+      <div class="container case-grid">
+
+        <div>
+          <p class="section-number">03 / ANALYSIS</p>
+          <h2>Read behaviour, not just reach.</h2>
+        </div>
+
+        <div class="case-copy">
+          <p>
+            I examined post-level analytics from Instagram and
+            Facebook, looking at the relationship between
+            distribution, engagement and audience actions.
+          </p>
+
+          <h3>Distribution</h3>
+          <p>
+            Reach and views help describe how widely content
+            was distributed. Instagram's Reels, Feed, Explore,
+            Stories and Profile sources also provide context
+            for how people encountered a post.
+          </p>
+
+          <h3>Engagement</h3>
+          <p>
+            Likes, comments, shares and saves represent different
+            forms of response. I treated them as separate signals
+            rather than assuming that views alone demonstrated
+            interest or purchase intent.
+          </p>
+
+          <h3>Commercial intent</h3>
+          <p>
+            Profile visits, inquiries and sales matter for a
+            different reason: they help assess whether attention
+            is progressing toward a business outcome.
+          </p>
+
+          <div class="case-highlight">
+            <p class="eyebrow">The central question</p>
+            <h3>What does the viewer do after watching?</h3>
+            <p>
+              A post can earn attention without generating
+              a meaningful next step. The analysis therefore
+              considered the distance between content consumption,
+              profile exploration, inquiries and purchases.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CREATIVE STRATEGY -->
+
+    <section class="case-section alt">
+      <div class="container case-grid">
+
+        <div>
+          <p class="section-number">04 / CREATIVE STRATEGY</p>
+          <h2>Make the next step clearer.</h2>
+        </div>
+
+        <div class="case-copy">
+          <p>
+            The creative approach explored how content presentation
+            and calls to action could make the account's intended
+            next step more explicit.
+          </p>
+
+          <ul class="case-list">
+            <li>
+              <span>01</span>
+              <div>
+                <strong>Product-led storytelling</strong><br>
+                Present fashion through the outfit, its design
+                details and styling possibilities.
+              </div>
+            </li>
+
+            <li>
+              <span>02</span>
+              <div>
+                <strong>Human presence</strong><br>
+                Explore owner-led and user-generated content
+                alongside conventional product content.
+              </div>
+            </li>
+
+            <li>
+              <span>03</span>
+              <div>
+                <strong>Content variation</strong><br>
+                Examine different creative formats and the
+                audience responses they attract.
+              </div>
+            </li>
+
+            <li>
+              <span>04</span>
+              <div>
+                <strong>Explicit calls to action</strong><br>
+                Test a “Follow us” end slide on Reels and
+                supporting calls to action in captions.
+              </div>
+            </li>
+          </ul>
+
+          <p style="margin-top: 28px;">
+            These were practical content and messaging decisions
+            intended to make future experimentation more
+            structured. They should not be interpreted as
+            proven causes of improved sales.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MEASUREMENT -->
+
+    <section class="case-section">
+      <div class="container case-grid">
+
+        <div>
+          <p class="section-number">05 / MEASUREMENT</p>
+          <h2>Separate signals from outcomes.</h2>
+        </div>
+
+        <div class="case-copy">
+          <p>
+            A key part of the work was maintaining a distinction
+            between content engagement and commercial performance.
+          </p>
+
+          <h3>What the available data could show</h3>
+          <p>
+            Post-level views and engagement could help describe
+            distribution and audience response. Profile visits
+            and inquiries could provide additional evidence of
+            movement toward a potential customer conversation.
+          </p>
+
+          <h3>What it could not establish</h3>
+          <p>
+            Without verified purchase attribution, the available
+            social media data could not establish that a
+            particular post generated a sale or delivered a
+            positive return on marketing investment.
+          </p>
+
+          <div class="case-disclaimer">
+            <strong>Measurement note</strong><br>
+            The social media dataset reviewed did not establish
+            any attributable sales. The analysis therefore
+            focuses on observed content signals and the
+            measurement questions they raised, rather than
+            claiming revenue growth or campaign success.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LEARNINGS -->
+
+    <section class="case-section alt">
+      <div class="container case-grid">
+
+        <div>
+          <p class="section-number">06 / LEARNINGS</p>
+          <h2>What this work reinforced.</h2>
+        </div>
+
+        <div class="case-copy">
+
+          <ul class="case-list">
+            <li>
+              <span>01</span>
+              <div>
+                <strong>Attention and intent are different.</strong><br>
+                A high view count is not sufficient evidence
+                of purchase consideration.
+              </div>
+            </li>
+
+            <li>
+              <span>02</span>
+              <div>
+                <strong>Every creative needs a purpose.</strong><br>
+                Content should be evaluated against the
+                behaviour it is intended to encourage.
+              </div>
+            </li>
+
+            <li>
+              <span>03</span>
+              <div>
+                <strong>Experiments need measurable outcomes.</strong><br>
+                A call-to-action test is more informative when
+                its intended metric and evaluation period
+                are defined in advance.
+              </div>
+            </li>
+
+            <li>
+              <span>04</span>
+              <div>
+                <strong>The customer journey matters.</strong><br>
+                Content, profile information, inquiries and
+                the purchase process need to work together.
+              </div>
+            </li>
+          </ul>
+
+          <p style="margin-top: 30px;">
+            My main takeaway was to approach social media
+            marketing as a sequence of hypotheses and measurable
+            decisions, rather than a publishing exercise alone.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+
+    <section class="case-cta">
+      <div class="container">
+
+        <p class="section-number">THE APPROACH</p>
+
+        <h2>Think clearly.<br>Test deliberately.</h2>
+
+        <p>
+          I am interested in the intersection of consumer
+          psychology, creative strategy and measurable marketing
+          outcomes — understanding not just what attracts
+          attention, but what encourages people to act.
+        </p>
+
+        <a class="button button-dark" href="/#contact">
+          Start a conversation <span>↗</span>
+        </a>
+
+        <br>
+
+        <a class="case-back" href="/#practice">
+          ← Back to selected work
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2026 Pritansh Mehta</p>
+
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/pritanshmehta/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="LinkedIn">in</a>
+
+        <a href="https://www.instagram.com/pritansh.mehta/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Instagram">ig</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
