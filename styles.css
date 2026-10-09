@@ -84,3 +84,20 @@ button,a{-webkit-tap-highlight-color:transparent}
     max-height: none;
   }
 }
+
+/* Green rounded background behind the existing logo */
+.logo-background {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  background: var(--accent, #294437);
+  border-radius: 12px;
+  line-height: 0;
+}
+
+.logo-background img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
