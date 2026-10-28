@@ -277,60 +277,38 @@
   </footer>
   <script>
     (() => {
-      const initCarousel = () => {
-        const viewport = document.querySelector('#practice-projects');
-        const track = viewport && viewport.querySelector('.practice-carousel-track');
-        const count = document.querySelector('.carousel-count');
-        const arrows = document.querySelectorAll('.carousel-arrow[data-carousel-direction]');
-        if (!viewport || !track || !count || !arrows.length) return;
+      const setup = () => {
+        const carousel = document.querySelector('.practice-carousel');
+        if (!carousel) return;
+        const slides = Array.from(carousel.querySelectorAll('.practice-carousel-track > .practice-feature'));
+        const count = carousel.querySelector('.carousel-count');
+        const arrows = carousel.querySelectorAll('.carousel-arrow[data-carousel-direction]');
+        if (slides.length < 2 || !count || !arrows.length) return;
 
-        const slides = Array.from(track.querySelectorAll(':scope > .practice-feature'));
-        if (!slides.length) return;
-
-        // Measure each slide relative to the actual scroll viewport, avoiding
-        // offsetLeft/offsetParent differences across browsers and layouts.
-        const slidePosition = (slide) =>
-          slide.getBoundingClientRect().left -
-          viewport.getBoundingClientRect().left +
-          viewport.scrollLeft;
-
-        const activeIndex = () => {
-          let best = 0;
-          let distance = Infinity;
-          slides.forEach((slide, index) => {
-            const d = Math.abs(slidePosition(slide) - viewport.scrollLeft);
-            if (d < distance) {
-              best = index;
-              distance = d;
-            }
+        let current = 0;
+        const showSlide = (index) => {
+          current = (index + slides.length) % slides.length;
+          slides.forEach((slide, i) => {
+            slide.hidden = i !== current;
+            slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
           });
-          return best;
-        };
-
-        const updateCount = () => {
-          count.textContent =
-            String(activeIndex() + 1).padStart(2, '0') +
-            ' / ' +
-            String(slides.length).padStart(2, '0');
+          count.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
         };
 
         arrows.forEach((arrow) => {
-          arrow.addEventListener('click', () => {
-            const direction = Number(arrow.dataset.carouselDirection);
-            const next = (activeIndex() + direction + slides.length) % slides.length;
-            viewport.scrollTo({ left: slidePosition(slides[next]), behavior: 'smooth' });
+          arrow.addEventListener('click', (event) => {
+            event.preventDefault();
+            showSlide(current + Number(arrow.dataset.carouselDirection || 1));
           });
         });
 
-        viewport.addEventListener('scroll', updateCount, { passive: true });
-        window.addEventListener('resize', updateCount);
-        updateCount();
+        showSlide(0);
       };
 
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initCarousel, { once: true });
+        document.addEventListener('DOMContentLoaded', setup, { once: true });
       } else {
-        initCarousel();
+        setup();
       }
     })();
   </script>
