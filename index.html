@@ -277,38 +277,40 @@
   </footer>
   <script>
     (() => {
-      const setup = () => {
+      function setupPracticeCarousel() {
         const carousel = document.querySelector('.practice-carousel');
-        if (!carousel) return;
+        if (!carousel || carousel.dataset.carouselReady === 'true') return;
 
         const viewport = carousel.querySelector('.practice-carousel-viewport');
         const track = carousel.querySelector('.practice-carousel-track');
-        const slides = Array.from(track ? track.querySelectorAll(':scope > .practice-feature') : []);
         const count = carousel.querySelector('.carousel-count');
-        const arrows = carousel.querySelectorAll('.carousel-arrow[data-carousel-direction]');
-        if (!viewport || !track || slides.length < 2 || !count || !arrows.length) return;
+        if (!viewport || !track || !count) return;
+
+        const slides = Array.from(track.children).filter((slide) => slide.classList.contains('practice-feature'));
+        const arrows = Array.from(carousel.querySelectorAll('[data-carousel-direction]'));
+        if (slides.length < 2 || arrows.length === 0) return;
+        carousel.dataset.carouselReady = 'true';
 
         let current = 0;
         let scrollFrame = 0;
-
         const updateCount = () => {
-          const width = viewport.clientWidth || 1;
-          current = Math.max(0, Math.min(slides.length - 1, Math.round(viewport.scrollLeft / width)));
+          const left = viewport.scrollLeft;
+          current = slides.reduce((closest, slide, index) =>
+            Math.abs(slide.offsetLeft - left) < Math.abs(slides[closest].offsetLeft - left) ? index : closest, 0);
           count.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
         };
-
         const goToSlide = (index) => {
-          const next = (index + slides.length) % slides.length;
-          viewport.scrollTo({ left: next * viewport.clientWidth, behavior: 'smooth' });
-          current = next;
+          current = (index + slides.length) % slides.length;
+          viewport.scrollTo({ left: slides[current].offsetLeft, behavior: 'smooth' });
           count.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
         };
 
-        arrows.forEach((arrow) => {
-          arrow.addEventListener('click', (event) => {
-            event.preventDefault();
-            goToSlide(current + Number(arrow.dataset.carouselDirection || 1));
-          });
+        carousel.addEventListener('click', (event) => {
+          const arrow = event.target.closest('[data-carousel-direction]');
+          if (!arrow || !carousel.contains(arrow)) return;
+          event.preventDefault();
+          event.stopPropagation();
+          goToSlide(current + Number(arrow.dataset.carouselDirection || 1));
         });
 
         viewport.addEventListener('scroll', () => {
@@ -320,17 +322,16 @@
         }, { passive: true });
 
         window.addEventListener('resize', () => {
-          viewport.scrollTo({ left: current * viewport.clientWidth, behavior: 'auto' });
+          viewport.scrollTo({ left: slides[current].offsetLeft, behavior: 'auto' });
           updateCount();
         });
 
         updateCount();
-      };
-
+      }
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setup, { once: true });
+        document.addEventListener('DOMContentLoaded', setupPracticeCarousel, { once: true });
       } else {
-        setup();
+        setupPracticeCarousel();
       }
     })();
   </script>
