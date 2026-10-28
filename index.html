@@ -277,34 +277,61 @@
   </footer>
   <script>
     (() => {
-      const viewport = document.querySelector('.practice-carousel-viewport');
-      const track = document.querySelector('.practice-carousel-track');
-      const count = document.querySelector('.carousel-count');
-      const arrows = document.querySelectorAll('[data-carousel-direction]');
-      if (!viewport || !track || !count || !arrows.length) return;
+      const initCarousel = () => {
+        const viewport = document.querySelector('#practice-projects');
+        const track = viewport && viewport.querySelector('.practice-carousel-track');
+        const count = document.querySelector('.carousel-count');
+        const arrows = document.querySelectorAll('.carousel-arrow[data-carousel-direction]');
+        if (!viewport || !track || !count || !arrows.length) return;
 
-      const slides = Array.from(track.querySelectorAll('.practice-feature'));
-      const activeIndex = () => {
-        let best = 0;
-        let distance = Infinity;
-        slides.forEach((slide, index) => {
-          const d = Math.abs(slide.offsetLeft - track.offsetLeft - viewport.scrollLeft);
-          if (d < distance) { best = index; distance = d; }
+        const slides = Array.from(track.querySelectorAll(':scope > .practice-feature'));
+        if (!slides.length) return;
+
+        // Measure each slide relative to the actual scroll viewport, avoiding
+        // offsetLeft/offsetParent differences across browsers and layouts.
+        const slidePosition = (slide) =>
+          slide.getBoundingClientRect().left -
+          viewport.getBoundingClientRect().left +
+          viewport.scrollLeft;
+
+        const activeIndex = () => {
+          let best = 0;
+          let distance = Infinity;
+          slides.forEach((slide, index) => {
+            const d = Math.abs(slidePosition(slide) - viewport.scrollLeft);
+            if (d < distance) {
+              best = index;
+              distance = d;
+            }
+          });
+          return best;
+        };
+
+        const updateCount = () => {
+          count.textContent =
+            String(activeIndex() + 1).padStart(2, '0') +
+            ' / ' +
+            String(slides.length).padStart(2, '0');
+        };
+
+        arrows.forEach((arrow) => {
+          arrow.addEventListener('click', () => {
+            const direction = Number(arrow.dataset.carouselDirection);
+            const next = (activeIndex() + direction + slides.length) % slides.length;
+            viewport.scrollTo({ left: slidePosition(slides[next]), behavior: 'smooth' });
+          });
         });
-        return best;
+
+        viewport.addEventListener('scroll', updateCount, { passive: true });
+        window.addEventListener('resize', updateCount);
+        updateCount();
       };
-      const updateCount = () => {
-        count.textContent = String(activeIndex() + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
-      };
-      arrows.forEach((arrow) => {
-        arrow.addEventListener('click', () => {
-          const next = (activeIndex() + Number(arrow.dataset.carouselDirection) + slides.length) % slides.length;
-          viewport.scrollTo({ left: slides[next].offsetLeft - track.offsetLeft, behavior: 'smooth' });
-        });
-      });
-      viewport.addEventListener('scroll', updateCount, { passive: true });
-      window.addEventListener('resize', updateCount);
-      updateCount();
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCarousel, { once: true });
+      } else {
+        initCarousel();
+      }
     })();
   </script>
 </body>
