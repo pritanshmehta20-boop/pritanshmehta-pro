@@ -181,9 +181,3 @@ button,a{-webkit-tap-highlight-color:transparent}
 .practice-carousel-track > .practice-feature { box-sizing: border-box; flex: 0 0 100%; width: 100%; min-width: 100%; }
 .practice-carousel-track .practice-feature img { pointer-events: none; }
 
-
-/* Reliable project switcher: show one card at a time instead of relying on scroll offsets. */
-.practice-carousel-viewport { overflow: visible; }
-.practice-carousel-track { display: block; width: 100%; }
-.practice-carousel-track > .practice-feature { width: 100%; min-width: 0; }
-.practice-carousel-track > .practice-feature[hidden] { display: none !important; }
