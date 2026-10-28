@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Space Craft Associates — architecture and interiors</title>
+  <desc id="desc">Dark editorial portfolio cover with an abstract contemporary interior, architectural drafting lines, and acid green details.</desc>
+  <defs>
+    <linearGradient id="stone" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bdb6a8"/>
+      <stop offset="1" stop-color="#716c62"/>
+    </linearGradient>
+    <pattern id="grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" fill="none" stroke="#ffffff" stroke-opacity=".09" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#151714"/>
+  <rect x="26" y="26" width="1148" height="848" fill="none" stroke="#5a5e55" stroke-width="1"/>
+  <text x="66" y="82" fill="#c7ff32" font-family="Arial, Helvetica, sans-serif" font-size="17" letter-spacing="4">SELECTED WORK / ARCHITECTURE + INTERIORS</text>
+  <text x="66" y="130" fill="#c8c7bd" font-family="Arial, Helvetica, sans-serif" font-size="15" letter-spacing="2">PUNE, INDIA</text>
+  <g transform="translate(66 172)">
+    <rect width="1068" height="540" fill="#242722"/>
+    <rect width="1068" height="540" fill="url(#grid)"/>
+    <path d="M55 465V70H430V465" fill="url(#stone)"/>
+    <path d="M430 465V70H700L905 220V465Z" fill="#d7d0c1"/>
+    <path d="M700 70L905 220H1013V465H905V220" fill="#8b877d"/>
+    <path d="M55 465H1013" stroke="#c7ff32" stroke-width="3"/>
+    <path d="M430 70L700 70L905 220" fill="none" stroke="#252822" stroke-width="4"/>
+    <path d="M110 130H370M110 160H370M110 190H370" stroke="#e9e3d7" stroke-opacity=".45" stroke-width="2"/>
+    <rect x="474" y="110" width="160" height="355" fill="#171a17"/>
+    <rect x="490" y="126" width="128" height="323" fill="#8c9b8b"/>
+    <path d="M490 260H618M554 126V449" stroke="#d7d0c1" stroke-width="3" stroke-opacity=".8"/>
+    <path d="M730 255L905 365V465H730Z" fill="#b4ad9e"/>
+    <path d="M748 278L887 365M748 310L887 397M748 342L887 429" stroke="#6c6a60" stroke-width="2" stroke-opacity=".7"/>
+    <path d="M55 70H1013V465" fill="none" stroke="#f0eee5" stroke-opacity=".5" stroke-width="1.5"/>
+    <g fill="none" stroke="#c7ff32" stroke-width="1.5">
+      <path d="M55 38V12H430V38M430 12H700V38"/>
+      <path d="M1035 70H1050V465H1035"/>
+      <path d="M55 490V510H430V490"/>
+    </g>
+    <g fill="#c7ff32" font-family="Arial, Helvetica, sans-serif" font-size="12" letter-spacing="2">
+      <text x="55" y="526">FORM / LIGHT / MATERIAL</text>
+      <text x="812" y="526">FIG. 01 — SPATIAL STUDY</text>
+    </g>
+  </g>
+  <text x="66" y="785" fill="#f3f0e8" font-family="Arial, Helvetica, sans-serif" font-size="53" font-weight="700" letter-spacing="-1.5">SPACE CRAFT ASSOCIATES</text>
+  <text x="68" y="824" fill="#bdbeb5" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="4">INTERIOR DESIGN  /  ARCHITECTURE</text>
+  <rect x="1058" y="795" width="44" height="5" fill="#c7ff32"/>
+</svg>
