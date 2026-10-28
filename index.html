@@ -284,17 +284,22 @@
       if (!viewport || !track || !count || !arrows.length) return;
 
       const slides = Array.from(track.querySelectorAll('.practice-feature'));
-      const updateCount = () => {
-        const index = Math.round(viewport.scrollLeft / viewport.clientWidth);
-        count.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      const activeIndex = () => {
+        let best = 0;
+        let distance = Infinity;
+        slides.forEach((slide, index) => {
+          const d = Math.abs(slide.offsetLeft - track.offsetLeft - viewport.scrollLeft);
+          if (d < distance) { best = index; distance = d; }
+        });
+        return best;
       };
-
+      const updateCount = () => {
+        count.textContent = String(activeIndex() + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      };
       arrows.forEach((arrow) => {
         arrow.addEventListener('click', () => {
-          const direction = Number(arrow.dataset.carouselDirection);
-          const current = Math.round(viewport.scrollLeft / viewport.clientWidth);
-          const next = (current + direction + slides.length) % slides.length;
-          viewport.scrollTo({ left: next * viewport.clientWidth, behavior: 'smooth' });
+          const next = (activeIndex() + Number(arrow.dataset.carouselDirection) + slides.length) % slides.length;
+          viewport.scrollTo({ left: slides[next].offsetLeft - track.offsetLeft, behavior: 'smooth' });
         });
       });
       viewport.addEventListener('scroll', updateCount, { passive: true });

@@ -173,3 +173,10 @@ button,a{-webkit-tap-highlight-color:transparent}
   .practice-carousel-track .practice-art { padding: 12px; }
   .space-craft-photo { aspect-ratio: 4 / 3; }
 }
+
+
+/* Carousel sizing fix: keep each project as one full-width horizontal slide. */
+.practice-carousel-viewport { position: relative; overflow-x: auto; overflow-y: hidden; cursor: grab; touch-action: pan-x pan-y; }
+.practice-carousel-track { display: flex; flex-flow: row nowrap; width: 100%; min-width: 0; }
+.practice-carousel-track > .practice-feature { box-sizing: border-box; flex: 0 0 100%; width: 100%; min-width: 100%; }
+.practice-carousel-track .practice-feature img { pointer-events: none; }
