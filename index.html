@@ -280,29 +280,51 @@
       const setup = () => {
         const carousel = document.querySelector('.practice-carousel');
         if (!carousel) return;
-        const slides = Array.from(carousel.querySelectorAll('.practice-carousel-track > .practice-feature'));
+
+        const viewport = carousel.querySelector('.practice-carousel-viewport');
+        const track = carousel.querySelector('.practice-carousel-track');
+        const slides = Array.from(track ? track.querySelectorAll(':scope > .practice-feature') : []);
         const count = carousel.querySelector('.carousel-count');
         const arrows = carousel.querySelectorAll('.carousel-arrow[data-carousel-direction]');
-        if (slides.length < 2 || !count || !arrows.length) return;
+        if (!viewport || !track || slides.length < 2 || !count || !arrows.length) return;
 
         let current = 0;
-        const showSlide = (index) => {
-          current = (index + slides.length) % slides.length;
-          slides.forEach((slide, i) => {
-            slide.hidden = i !== current;
-            slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
-          });
+        let scrollFrame = 0;
+
+        const updateCount = () => {
+          const width = viewport.clientWidth || 1;
+          current = Math.max(0, Math.min(slides.length - 1, Math.round(viewport.scrollLeft / width)));
+          count.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+        };
+
+        const goToSlide = (index) => {
+          const next = (index + slides.length) % slides.length;
+          viewport.scrollTo({ left: next * viewport.clientWidth, behavior: 'smooth' });
+          current = next;
           count.textContent = String(current + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
         };
 
         arrows.forEach((arrow) => {
           arrow.addEventListener('click', (event) => {
             event.preventDefault();
-            showSlide(current + Number(arrow.dataset.carouselDirection || 1));
+            goToSlide(current + Number(arrow.dataset.carouselDirection || 1));
           });
         });
 
-        showSlide(0);
+        viewport.addEventListener('scroll', () => {
+          if (scrollFrame) cancelAnimationFrame(scrollFrame);
+          scrollFrame = requestAnimationFrame(() => {
+            updateCount();
+            scrollFrame = 0;
+          });
+        }, { passive: true });
+
+        window.addEventListener('resize', () => {
+          viewport.scrollTo({ left: current * viewport.clientWidth, behavior: 'auto' });
+          updateCount();
+        });
+
+        updateCount();
       };
 
       if (document.readyState === 'loading') {
