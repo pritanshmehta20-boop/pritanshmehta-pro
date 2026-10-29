@@ -197,7 +197,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 .sca-caption{color:#aaa9a2;font:clamp(5px,.65vw,8px) 'DM Mono',monospace;letter-spacing:.08em;margin-top:9%}
 .sca-photo-wrap{position:relative;z-index:1;width:100%;aspect-ratio:.78;overflow:hidden;background:#343431}
 .sca-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.82) contrast(1.06) saturate(.78)}
-.sca-progress{position:absolute;z-index:4;left:4%;right:12%;top:58%;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.sca-progress{position:absolute;z-index:4;left:auto;right:4%;width:38%;top:58%;display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .sca-progress i{display:block;height:clamp(8px,1.4vw,22px);background:#333331}
 .sca-progress i:nth-child(2){background:#c7ff32}
 .sca-circle{position:absolute;z-index:2;width:48%;aspect-ratio:1;border:1px solid #777770;border-radius:50%;right:-5%;bottom:-18%;pointer-events:none}
